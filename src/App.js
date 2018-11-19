@@ -1,7 +1,10 @@
 import React from 'react';
 import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from 'react-apollo';
+import ApolloProvider from 'react-apollo/ApolloProvider';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import AppContent from './AppContent';
+import theme from './theme';
+import './App.css';
 
 
 const client = new ApolloClient({
@@ -10,8 +13,9 @@ const client = new ApolloClient({
 
 const App = () => (
     <ApolloProvider client={client}>
-        <div>App content</div>
-        <AppContent />
+        <MuiThemeProvider theme={theme}>
+            <AppContent />
+        </MuiThemeProvider>
     </ApolloProvider>
 );
 
